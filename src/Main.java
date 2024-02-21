@@ -7,6 +7,8 @@ public class Main {
 			Login l1 = new Login();
 
 				l1.setVisible (true);
+				
+				
   
 }
 }
