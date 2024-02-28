@@ -1,13 +1,12 @@
-
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		
-		Calculadora c1= new Calculadora();
+		VentanaLogin v1= new VentanaLogin();
 		
-		c1.setVisible(true);
+		v1.setVisible(true);
 
 	}
 
