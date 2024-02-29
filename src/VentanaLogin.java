@@ -36,7 +36,7 @@ public class VentanaLogin extends JFrame {
 		//this.setLocationRelativeTo(null);
 		
 		this.iniciarComponentes();
-
+		this.interes();
 		
 		}
 	
@@ -47,9 +47,7 @@ public class VentanaLogin extends JFrame {
 		JPanel login = new JPanel();
 		login.setBackground(Color.pink);
 		login.setLayout(null);
-		
-
-		
+	
 		JLabel login_tag = new JLabel("Acceder", 0);
 		login_tag.setSize(200,30);
 		login_tag.setFont(new Font("Roboto", Font.BOLD, 20));
@@ -126,8 +124,122 @@ public class VentanaLogin extends JFrame {
 		login2.setLayout(null);
 		login.add(login2);	
 		
-		this.add(login);
+		//this.add(login);
 
+	}
+	
+public void interes() {
+		
+		this.setSize(500,500);
+		
+		JPanel panel1 = new JPanel();
+		panel1.setSize(WIDTH, HEIGHT);
+		panel1.setBackground(Color.decode("#E16D8D"));
+		panel1.setLayout(null);
+		
+		JLabel login_tag = new JLabel("Interés", 0);
+		login_tag.setFont(new Font("Roboto", Font.BOLD, 20));
+		login_tag.setBounds(0, 0, 80, 30);
+		login_tag.setBackground(Color.white);
+		panel1.add(login_tag);
+		
+		JLabel calcular = new JLabel("Calcular interés", 0);
+		calcular.setSize(200,30);
+		calcular.setFont(new Font("Roboto", Font.BOLD, 15));
+		calcular.setBounds(30,10,150,60);
+		panel1.add(calcular);
+		
+		JLabel capital = new JLabel("Capital:", 0);
+		capital.setFont(new Font("Roboto", Font.BOLD, 15));
+		capital.setBounds(50,50,150,60);
+		panel1.add(capital);
+		
+		JLabel capital_tag = new JLabel("", 0);
+		capital_tag.setFont(new Font("Roboto", Font.BOLD, 15));
+		capital_tag.setBounds(200,70,190,25);
+		capital_tag.setBackground(Color.white);
+		capital_tag.setOpaque(true);
+		panel1.add(capital_tag);
+		
+		JLabel tiempo = new JLabel("Tiempo:", 0);
+		tiempo.setFont(new Font("Roboto", Font.BOLD, 15));
+		tiempo.setBounds(50,100,150,60);
+		panel1.add(tiempo);
+		
+		JLabel tiempo_tag = new JLabel("", 0);
+		tiempo_tag.setFont(new Font("Roboto", Font.BOLD, 15));
+		tiempo_tag.setBounds(200,120,190,25);
+		tiempo_tag.setBackground(Color.white);
+		tiempo_tag.setOpaque(true);
+		panel1.add(tiempo_tag);
+		
+		JLabel tasa = new JLabel("Tasa interés:", 0);
+		tasa.setFont(new Font("Roboto", Font.BOLD, 15));
+		tasa.setBounds(50,150,150,60);
+		panel1.add(tasa);
+		
+		JLabel tasa_tag = new JLabel("", 0);
+		tasa_tag.setFont(new Font("Roboto", Font.BOLD, 15));
+		tasa_tag.setBounds(200,170,190,25);
+		tasa_tag.setBackground(Color.white);
+		tasa_tag.setOpaque(true);
+		panel1.add(tasa_tag);
+
+		
+		JLabel calcular_btn = new JLabel("Calcular", 0);
+		calcular_btn.setFont(new Font("Roboto", Font.BOLD, 15));
+		calcular_btn.setBounds(100,220,100,25);
+		calcular_btn.setForeground(Color.white);
+		calcular_btn.setBackground(Color.black);
+		calcular_btn.setOpaque(true);
+		panel1.add(calcular_btn);
+		
+		JLabel cancelar_btn = new JLabel("Cancelar", 0);
+		cancelar_btn.setFont(new Font("Roboto", Font.BOLD, 15));
+		cancelar_btn.setBounds(280,220,100,25);
+		cancelar_btn.setForeground(Color.white);
+		cancelar_btn.setBackground(Color.black);
+		cancelar_btn.setOpaque(true);
+		panel1.add(cancelar_btn);
+		
+		JLabel interes = new JLabel("Interés:", 0);
+		interes.setFont(new Font("Roboto", Font.BOLD, 15));
+		interes.setBounds(50,310,150,60);
+		panel1.add(interes);
+		
+		JLabel interes_tag = new JLabel("", 0);
+		interes_tag.setFont(new Font("Roboto", Font.BOLD, 15));
+		interes_tag.setBounds(200,330,190,25);
+		interes_tag.setBackground(Color.white);
+		interes_tag.setOpaque(true);
+		panel1.add(interes_tag);
+		
+		JLabel monto = new JLabel("Monto:", 0);
+		monto.setFont(new Font("Roboto", Font.BOLD, 15));
+		monto.setBounds(50,350,150,60);
+		panel1.add(monto);
+		
+		JLabel monto_tag = new JLabel("", 0);
+		monto_tag.setFont(new Font("Roboto", Font.BOLD, 15));
+		monto_tag.setBounds(200,370,190,25);
+		monto_tag.setBackground(Color.white);
+		monto_tag.setOpaque(true);
+		panel1.add(monto_tag);
+		
+		JPanel panel2 = new JPanel();
+		panel2.setBounds(40, 30, 400, 250);
+		panel2.setBackground(Color.LIGHT_GRAY);
+		panel2.setLayout(null);
+		panel1.add(panel2);
+		
+		JPanel panel3 = new JPanel();
+		panel3.setBounds(40, 300, 400, 130);
+		panel3.setBackground(Color.gray);
+		panel3.setLayout(null);
+		panel1.add(panel3);
+		
+		this.add(panel1);
+		
 	}
 	
 }
