@@ -1,12 +1,19 @@
 
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -31,7 +38,7 @@ public class Ventana extends JFrame {
 	public Ventana() {
 		
 		this.setVisible (true);
-		this.setSize(500,500);
+		this.setSize(800,800);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Ventana");
 		//this.setMinimumSize(new Dimension(250,250));
@@ -39,17 +46,17 @@ public class Ventana extends JFrame {
 		this.setOpacity(1);
 		this.setResizable(true);
 		this.setLocation(200,200);
-		//this.setLocationRelativeTo(null);
+		this.setLocationRelativeTo(null);
 		
-		this.iniciarComponentes();
-		this.calculadora();
+		//this.iniciarComponentes();
+		//this.calculadora();
+		//this.interes();
+		
 		
 		}
 	
 	public void iniciarComponentes() {
 		
-
-
 		JPanel login = new JPanel();
 		login.setBackground(Color.pink);
 		login.setLayout(null);
@@ -189,13 +196,176 @@ public class Ventana extends JFrame {
 		}
 		
 		this.add(panel);
-		
 
 	}
 	
-	
-	
-}
-	
+	public void interes() {
+		
+		this.setSize(500,500);
+		
+		JPanel panel1 = new JPanel();
+		panel1.setSize(WIDTH, HEIGHT);
+		panel1.setBackground(Color.decode("#E16D8D"));
+		panel1.setLayout(null);
+		
+		JLabel login_tag = new JLabel("Interés", 0);
+		login_tag.setFont(new Font("Roboto", Font.BOLD, 20));
+		login_tag.setBounds(0, 0, 80, 30);
+		login_tag.setBackground(Color.white);
+		panel1.add(login_tag);
+		
+		JLabel calcular = new JLabel("Calcular interés", 0);
+		calcular.setFont(new Font("Roboto", Font.BOLD, 15));
+		calcular.setBounds(30,20,150,60);
+		panel1.add(calcular);
+		
+		JLabel capital = new JLabel("Capital:", 0);
+		capital.setFont(new Font("Roboto", Font.BOLD, 15));
+		capital.setBounds(50,60,150,60);
+		panel1.add(capital);
+		
+		JLabel capital_tag = new JLabel("", 0);
+		capital_tag.setFont(new Font("Roboto", Font.BOLD, 15));
+		capital_tag.setBounds(200,80,190,25);
+		capital_tag.setBackground(Color.white);
+		capital_tag.setOpaque(true);
+		panel1.add(capital_tag);
+		
+		JLabel tiempo = new JLabel("Tiempo:", 0);
+		tiempo.setFont(new Font("Roboto", Font.BOLD, 15));
+		tiempo.setBounds(50,110,150,60);
+		panel1.add(tiempo);
+		
+		JLabel tiempo_tag = new JLabel("", 0);
+		tiempo_tag.setFont(new Font("Roboto", Font.BOLD, 15));
+		tiempo_tag.setBounds(200,130,190,25);
+		tiempo_tag.setBackground(Color.white);
+		tiempo_tag.setOpaque(true);
+		panel1.add(tiempo_tag);
+		
+		JLabel tasa = new JLabel("Tasa interés:", 0);
+		tasa.setFont(new Font("Roboto", Font.BOLD, 15));
+		tasa.setBounds(50,160,150,60);
+		panel1.add(tasa);
+		
+		JLabel tasa_tag = new JLabel("", 0);
+		tasa_tag.setFont(new Font("Roboto", Font.BOLD, 15));
+		tasa_tag.setBounds(200,180,190,25);
+		tasa_tag.setBackground(Color.white);
+		tasa_tag.setOpaque(true);
+		panel1.add(tasa_tag);
 
+		
+		JLabel calcular_btn = new JLabel("Calcular", 0);
+		calcular_btn.setFont(new Font("Roboto", Font.BOLD, 15));
+		calcular_btn.setBounds(100,230,100,25);
+		calcular_btn.setForeground(Color.white);
+		calcular_btn.setBackground(Color.black);
+		calcular_btn.setOpaque(true);
+		panel1.add(calcular_btn);
+		
+		JLabel cancelar_btn = new JLabel("Cancelar", 0);
+		cancelar_btn.setFont(new Font("Roboto", Font.BOLD, 15));
+		cancelar_btn.setBounds(280,230,100,25);
+		cancelar_btn.setForeground(Color.white);
+		cancelar_btn.setBackground(Color.black);
+		cancelar_btn.setOpaque(true);
+		panel1.add(cancelar_btn);
+		
+		JLabel interes = new JLabel("Interés:", 0);
+		interes.setFont(new Font("Roboto", Font.BOLD, 15));
+		interes.setBounds(50,310,150,60);
+		panel1.add(interes);
+		
+		JLabel interes_tag = new JLabel("", 0);
+		interes_tag.setFont(new Font("Roboto", Font.BOLD, 15));
+		interes_tag.setBounds(200,330,190,25);
+		interes_tag.setBackground(Color.white);
+		interes_tag.setOpaque(true);
+		panel1.add(interes_tag);
+		
+		JLabel monto = new JLabel("Monto:", 0);
+		monto.setFont(new Font("Roboto", Font.BOLD, 15));
+		monto.setBounds(50,350,150,60);
+		panel1.add(monto);
+		
+		JLabel monto_tag = new JLabel("", 0);
+		monto_tag.setFont(new Font("Roboto", Font.BOLD, 15));
+		monto_tag.setBounds(200,370,190,25);
+		monto_tag.setBackground(Color.white);
+		monto_tag.setOpaque(true);
+		panel1.add(monto_tag);
+		
+		JPanel panel2 = new JPanel();
+		panel2.setBounds(40, 40, 400, 250);
+		panel2.setBackground(Color.LIGHT_GRAY);
+		panel2.setLayout(null);
+		panel1.add(panel2);
+		
+		JPanel panel3 = new JPanel();
+		panel3.setBounds(40, 300, 400, 130);
+		panel3.setBackground(Color.gray);
+		panel3.setLayout(null);
+		panel1.add(panel3);
+		
+		//this.add(panel1);
+		
+	}
+	
+	public void paint(Graphics g) {
+		super.paint(g);
+		
+		Graphics2D g2d = (Graphics2D) g;
+		
+		//color
+		g2d.setColor(Color.black);
+
+		g2d.fillRect(50, 50, 200, 100);
+		
+		g2d.clearRect(100, 100, 100, 100);
+		
+		g2d.drawArc(300, 300, 100, 100, 0, 380);
+		g2d.fillArc(200, 300, 100, 100, 0, 300);
+		
+		g2d.drawLine(0, 0, 500, 500);
+		
+		g2d.drawOval(400, 400, 50, 80);
+		g2d.fillOval(350, 400, 50, 80);
+		
+		
+		int xPoints[]= {100,250,300};
+		int yPoints[]= {100,200,300};
+		g2d.drawPolyline(xPoints, yPoints, 3);
+		
+		g2d.setColor(Color.red);
+		
+		g2d.fillPolygon(xPoints, yPoints, 3);
+		
+		g2d.setFont(new Font("Roboto", Font.BOLD, 40));;
+		
+		g2d.drawString("hola", 250, 100);
+		
+		g2d.setStroke(new BasicStroke(10));
+		
+		g2d.drawRoundRect(420, 150, 200, 150, 10, 10);
+		
+		try {
+
+			BufferedImage image = ImageIO.read(new File("src/equis1.png"));
+			
+			g2d.drawImage(image, 10, 100, null);
+			
+			
+			
+		}catch(IOException e) {
+			
+			e.printStackTrace();
+
+		}	
+		
+	}
+
+	
+	}
+	
 

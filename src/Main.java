@@ -1,10 +1,11 @@
+
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		
-		VentanaLogin v1= new VentanaLogin();
+		Ventana v1= new Ventana();
 		
 		v1.setVisible(true);
 
