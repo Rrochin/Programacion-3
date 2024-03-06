@@ -4,9 +4,9 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		
-		VentanaLogin v1= new VentanaLogin();
+		MarioB MB= new MarioB();
 		
-		v1.setVisible(true);
+		MB.setVisible(true);
 
 	}
 
