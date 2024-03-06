@@ -1,7 +1,14 @@
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
 import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -25,18 +32,19 @@ public class VentanaLogin extends JFrame {
 	public VentanaLogin() {
 		
 		this.setVisible (true);
-		this.setSize(500,500);
+		this.setSize(800,800);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Ventana");
 		//this.setMinimumSize(new Dimension(250,250));
 		//this.setMaximumSize(new Dimension(750,750));
 		this.setOpacity(1);
 		this.setResizable(true);
-		this.setLocation(200,200);
-		//this.setLocationRelativeTo(null);
+		//this.setLocation(200,200);
+		this.setLocationRelativeTo(null);
 		
-		this.iniciarComponentes();
-		this.interes();
+		//this.iniciarComponentes();
+		//this.interes();
+		
 		
 		}
 	
@@ -241,5 +249,117 @@ public void interes() {
 		this.add(panel1);
 		
 	}
+
+public void paint(Graphics g) {
+	super.paint(g);
+
+	Graphics2D g2d = (Graphics2D) g;
+
+	//pared
+	g2d.setColor(Color.decode("#D5BA98"));
+
+	g2d.fillRect(210, 250, 350, 350);
+
+	//ESCALON
+	g2d.setColor(Color.GRAY);
+
+	g2d.fillRect(160, 580, 450, 20);
 	
+	//PASTO
+	g2d.setColor(Color.decode("#283E06"));
+
+	g2d.fillRect(0, 600, 800, 20);
+	
+	//PASTO ABAJO
+	g2d.setColor(Color.decode("#778C43"));
+
+	g2d.fillRect(0, 620, 800, 40);
+	
+	//PASTO ABAJO
+	g2d.setColor(Color.decode("#F7D547"));
+
+	g2d.fillRect(0, 660, 800, 40);
+	
+	//TIERRA
+	g2d.setColor(Color.decode("#834F23"));
+
+	g2d.fillRect(0, 700, 800, 100);
+	
+	//MARCO DE LA PUERTA
+	g2d.setColor(Color.decode("#834F23"));
+
+	g2d.fillRect(260, 370, 120, 210);
+	
+	//PUERTA
+	g2d.setColor(Color.decode("#A06C3F"));
+
+	g2d.fillRect(270, 380, 100, 200);
+	
+	//MARCO DE LA VENTANA
+	g2d.setColor(Color.decode("#834F23"));
+
+	g2d.fillRect(440, 300, 90, 90);
+	
+	//VENTANA
+	g2d.setColor(Color.decode("#F7D547"));
+
+	g2d.fillRect(450, 310, 70, 70);
+	
+	//BARROTES
+	g2d.setColor(Color.decode("#834F23"));
+
+	g2d.fillRect(483, 300, 5, 90);
+	
+	g2d.setColor(Color.decode("#834F23"));
+
+	g2d.fillRect(450, 343, 80, 5);
+	
+	//DESCANSA VENTANA
+	g2d.setColor(Color.GRAY);
+
+	g2d.fillRect(430, 390, 110, 10);
+	
+	
+	//PERILLA
+	g2d.setColor(Color.decode("#834F23"));
+	g2d.fillArc(340, 460, 20, 20, 0, 380);
+
+	g2d.drawLine(170, 250, 600, 250);
+
+	//g2d.drawOval(400, 400, 50, 80);
+	//g2d.fillOval(350, 400, 50, 80);
+
+
+	//int xPoints[]= {500,250,500};
+	//int yPoints[]= {500,50,300};
+	//g2d.drawPolyline(xPoints, yPoints, 3);
+
+	//g2d.setColor(Color.red);
+
+	//g2d.fillPolygon(xPoints, yPoints, 3);
+
+	//g2d.setFont(new Font("Roboto", Font.BOLD, 40));;
+
+	//g2d.drawString("hola", 250, 100);
+
+	//g2d.setStroke(new BasicStroke(10));
+
+	//g2d.drawRoundRect(420, 150, 200, 150, 10, 10);
+
+	//try {
+
+		//BufferedImage image = ImageIO.read(new File("src/equis1.png"));
+
+		//g2d.drawImage(image, 10, 100, null);
+
+
+
+	//}catch(IOException e) {
+
+		//e.printStackTrace();
+
+	//}	
+
+}
+
 }
