@@ -4,9 +4,9 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		
-		MarioB MB= new MarioB();
+		MarioB2 MB2= new MarioB2();
 		
-		MB.setVisible(true);
+		MB2.setVisible(true);
 
 	}
 
