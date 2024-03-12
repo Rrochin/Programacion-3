@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -38,7 +40,7 @@ public class Ventana extends JFrame {
 	public Ventana() {
 		
 		this.setVisible (true);
-		this.setSize(800,800);
+		this.setSize(1100,800);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Ventana");
 		//this.setMinimumSize(new Dimension(250,250));
@@ -48,7 +50,7 @@ public class Ventana extends JFrame {
 		this.setLocation(200,200);
 		this.setLocationRelativeTo(null);
 		
-		//this.iniciarComponentes();
+		this.iniciarComponentes();
 		//this.calculadora();
 		//this.interes();
 		
@@ -61,13 +63,13 @@ public class Ventana extends JFrame {
 		login.setBackground(Color.pink);
 		login.setLayout(null);
 		
-		JLabel login_tag = new JLabel("Acceder", 0);
-		login_tag.setSize(200,30);
-		login_tag.setFont(new Font("Roboto", Font.BOLD, 20));
-		login_tag.setLocation(150,310);
-		login_tag.setOpaque(true);
-		login_tag.setBackground(Color.white);
-		login.add(login_tag);
+		//JLabel login_tag = new JLabel("Acceder", 0);
+		//login_tag.setSize(200,30);
+		//login_tag.setFont(new Font("Roboto", Font.BOLD, 20));
+		//login_tag.setLocation(150,310);
+		//login_tag.setOpaque(true);
+		//login_tag.setBackground(Color.white);
+		//login.add(login_tag);
 		
 		JLabel user_tag3 = new JLabel("Mi cuenta");
 		user_tag3.setBounds(180,20,400,40);
@@ -124,10 +126,10 @@ public class Ventana extends JFrame {
 		//logo.setBounds(20,50,100,100);
 		//login.add(logo);
 		
-		JLabel logo2 = new JLabel();
-		logo2.setIcon(new ImageIcon(getClass().getResource("user2.png")));
-		logo2.setBounds(20,50,100,100);
-		login.add(logo2);
+		//JLabel logo2 = new JLabel();
+		//logo2.setIcon(new ImageIcon(getClass().getResource("user2.png")));
+		//logo2.setBounds(20,50,100,100);
+		//login.add(logo2);
 		
 		//panel delantero
 		JPanel login2 = new JPanel();
@@ -136,7 +138,53 @@ public class Ventana extends JFrame {
 		login2.setLayout(null);
 		login.add(login2);	
 		
-		//this.add(login);
+		JButton login_btn = new JButton("ACCEDER");
+		login_btn.setBounds(150,450,200,70);
+		login_btn.setFont(new Font("Roboto", Font.BOLD, 20));
+		
+		login_btn.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Hola");
+				
+				String usr = usr_field.getText();
+				String psw = new String(pwd_field.getPassword());
+
+				
+				if(usr.length()<=0) {
+					
+					usr_field.setBorder(BorderFactory.createLineBorder(Color.red,2));
+					
+				}else {
+					
+					usr_field.setBorder(BorderFactory.createLineBorder(Color.green,2));
+				}
+				
+				if(psw.length()<=0) {
+					
+					pwd_field.setBorder(BorderFactory.createLineBorder(Color.red,2));
+					
+				}else {
+					
+					pwd_field.setBorder(BorderFactory.createLineBorder(Color.green,2));
+				}
+				
+				if(usr.equals("SuperUser")) {
+					if(psw.equals("SuperPass")) {
+						
+						System.out.println("Bienvenido");
+				
+					}	
+					
+				}else {
+					
+					System.out.println("Usuario no encontrado");
+				}
+				
+			}});
+		
+		login.add(login_btn);
+		this.add(login);
 
 	}
 	
@@ -195,7 +243,7 @@ public class Ventana extends JFrame {
 			
 		}
 		
-		this.add(panel);
+		//this.add(panel);
 
 	}
 	
@@ -312,60 +360,145 @@ public class Ventana extends JFrame {
 		
 	}
 	
-	public void paint(Graphics g) {
-		super.paint(g);
+	//public void paint(Graphics g) {
+		//super.paint(g);
 		
-		Graphics2D g2d = (Graphics2D) g;
+		//Graphics2D g2d = (Graphics2D) g;
 		
-		//color
-		g2d.setColor(Color.black);
+		//FONDO
+		//g2d.setColor(Color.decode("#B6FFFF"));
+		//g2d.fillRect(0, 0, 1100,900);
+		
+		//PISO
+		//g2d.setColor(Color.decode("#6D3C11"));
+		//g2d.fillRect(0, 700, 1100,100);
+		
+		//g2d.setColor(Color.decode("#B88B5C"));
+		//g2d.fillRect(0, 680, 1100,30);
+		
+		
+		//ARBUSTO
+		//g2d.setColor(Color.decode("#005200"));
+		//g2d.fillArc(30, 580, 100, 100, 0, 380);
+		//g2d.fillArc(50, 535, 80, 80, 0, 380);
+		//g2d.fillArc(90, 570, 110, 110, 0, 380);
 
-		g2d.fillRect(50, 50, 200, 100);
+		//MURO AZUL
+		//g2d.setColor(Color.black);
+		//g2d.fillRect(365, 440, 210 ,240);
+		//g2d.setColor(Color.black);
+		//g2d.fillRect(345, 395, 200 ,285);		
+		//g2d.setColor(Color.decode("#7CDAF9"));
+		//g2d.fillRect(350, 400, 190 ,280);
+		//g2d.setColor(Color.BLACK);
+		//g2d.fillArc(358, 408, 25, 25, 0, 380);
+		//g2d.setColor(Color.gray);
+		//g2d.fillArc(360, 410, 20, 20, 0, 380);
+		//g2d.setColor(Color.BLACK);
+		//g2d.fillArc(510, 408, 25, 25, 0, 380);
+		//g2d.setColor(Color.gray);
+		//g2d.fillArc(512, 410, 20, 20, 0, 380);
+		//g2d.setColor(Color.BLACK);
+		//g2d.fillArc(510,650, 25, 25, 0, 380);
+		//g2d.setColor(Color.gray);
+		//g2d.fillArc(512, 652, 20, 20, 0, 380);
 		
-		g2d.clearRect(100, 100, 100, 100);
+		//MURO ROSA
+		//g2d.setColor(Color.black);
+		//g2d.fillRect(275, 510, 210 ,170);		
+		//g2d.setColor(Color.black);
+		//g2d.fillRect(245, 475, 210 ,205);		
+		//g2d.setColor(Color.decode("#FFCCBD"));
+		//g2d.fillRect(250, 480, 200 ,200);
+		//g2d.setColor(Color.BLACK);
+		//g2d.fillArc(255, 485, 25, 25, 0, 380);
+		//g2d.setColor(Color.gray);
+		//g2d.fillArc(257, 487, 20, 20, 0, 380);
+		//g2d.setColor(Color.BLACK);
+		//g2d.fillArc(420, 485, 25, 25, 0, 380);
+		//g2d.setColor(Color.gray);
+		//g2d.fillArc(422, 487, 20, 20, 0, 380);
+		//g2d.setColor(Color.BLACK);
+		//g2d.fillArc(420,650, 25, 25, 0, 380);
+		//g2d.setColor(Color.gray);
+		//g2d.fillArc(422, 652, 20, 20, 0, 380);
+		//g2d.setColor(Color.BLACK);
+		//g2d.fillArc(255,650, 25, 25, 0, 380);
+		//g2d.setColor(Color.gray);
+		//g2d.fillArc(257, 652, 20, 20, 0, 380);
 		
-		g2d.drawArc(300, 300, 100, 100, 0, 380);
-		g2d.fillArc(200, 300, 100, 100, 0, 300);
+		//MURO VERDE		
+		//g2d.setColor(Color.black);
+		//g2d.fillRect(910, 475, 210 ,205);		
+		//g2d.setColor(Color.decode("#66CC67"));
+		//g2d.fillRect(915, 480, 200 ,200);
+		//g2d.setColor(Color.BLACK);
+		//g2d.fillArc(920, 485, 25, 25, 0, 380);
+		//g2d.setColor(Color.gray);
+		//g2d.fillArc(922, 487, 20, 20, 0, 380);
+		//g2d.fillArc(422, 487, 20, 20, 0, 380);
+		//g2d.setColor(Color.BLACK);
+		//g2d.fillArc(920,650, 25, 25, 0, 380);
+		//g2d.setColor(Color.gray);
+		//g2d.fillArc(922, 652, 20, 20, 0, 380);
 		
-		g2d.drawLine(0, 0, 500, 500);
+		//TUBERIA
+		//g2d.setColor(Color.black);
+		//g2d.fillRect(690, 555, 115 ,125);	
+		//g2d.setColor(Color.decode("#F005200"));
+		//g2d.fillRect(695, 560, 105 ,120);	
+		//g2d.setColor(Color.black);
+		//g2d.fillRect(680, 515, 135 ,50);
+		//g2d.setColor(Color.decode("#F005200"));
+		//g2d.fillRect(685, 520, 125 ,40);
 		
-		g2d.drawOval(400, 400, 50, 80);
-		g2d.fillOval(350, 400, 50, 80);
-		
-		
-		int xPoints[]= {100,250,300};
-		int yPoints[]= {100,200,300};
-		g2d.drawPolyline(xPoints, yPoints, 3);
-		
-		g2d.setColor(Color.red);
-		
-		g2d.fillPolygon(xPoints, yPoints, 3);
-		
-		g2d.setFont(new Font("Roboto", Font.BOLD, 40));;
-		
-		g2d.drawString("hola", 250, 100);
-		
-		g2d.setStroke(new BasicStroke(10));
-		
-		g2d.drawRoundRect(420, 150, 200, 150, 10, 10);
-		
-		try {
+		//CUBOS
+		//g2d.setColor(Color.black);
+		//g2d.fillRect(100, 350, 75 ,75);		
+		//g2d.setColor(Color.decode("#A96A43"));
+		//g2d.fillRect(105, 355, 65 ,65);
 
-			BufferedImage image = ImageIO.read(new File("src/equis1.png"));
-			
-			g2d.drawImage(image, 10, 100, null);
-			
-			
-			
-		}catch(IOException e) {
-			
-			e.printStackTrace();
-
-		}	
+		//g2d.setColor(Color.black);
+		//g2d.fillRect(380, 150, 145 ,75);		
+		//g2d.setColor(Color.decode("#A96A43"));
+		//g2d.fillRect(385, 155, 65 ,65);
+		//g2d.setColor(Color.decode("#A96A43"));
+		//g2d.fillRect(455, 155, 65 ,65);
 		
-	}
 
+		
+		//int xPoints[]= {100,250,300};
+		//int yPoints[]= {100,200,300};
+	//	g2d.drawPolyline(xPoints, yPoints, 3);
+		
+		//g2d.setColor(Color.red);
+		
+		//g2d.fillPolygon(xPoints, yPoints, 3);
+		
+		//g2d.setFont(new Font("Roboto", Font.BOLD, 40));;
+		
+		//g2d.drawString("hola", 250, 100);
+		
+		//g2d.setStroke(new BasicStroke(10));
+		
+		//g2d.drawRoundRect(420, 150, 200, 150, 10, 10);
+		
+		//try {
+
+			//BufferedImage image = ImageIO.read(new File("src/equis1.png"));
+			
+			//g2d.drawImage(image, 10, 100, null);
+			
+			
+			
+			//}	catch(IOException e) {
+			
+			//	e.printStackTrace();
+
+				//}	
+		
 	
-	}
+	//}
+}
 	
 
