@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.imageio.ImageIO;
@@ -50,9 +51,10 @@ public class Ventana extends JFrame {
 		this.setLocation(200,200);
 		this.setLocationRelativeTo(null);
 		
-		this.iniciarComponentes();
+		//this.iniciarComponentes();
 		//this.calculadora();
 		//this.interes();
+		this.botones();
 		
 		
 		}
@@ -189,6 +191,8 @@ public class Ventana extends JFrame {
 	}
 	
 	public void calculadora(){
+
+	
 		
 		this.setSize(480,650);
 		
@@ -360,6 +364,54 @@ public class Ventana extends JFrame {
 		
 	}
 	
+	public void botones() {
+		
+		this.setSize(500,500);
+		
+		JPanel btn_panel = new JPanel();
+		btn_panel.setLocation(0,0);
+		btn_panel.setBackground(Color.white);
+		btn_panel.setLayout(null);
+		
+		JButton super_boton = new JButton("Click me!");
+		super_boton.setBounds(160,300,150,100);
+		super_boton.setFont(new Font("Roboto", Font.BOLD, 20));
+		btn_panel.add(super_boton);
+		
+		super_boton.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Hola");
+				
+				int x = (int)Math.floor(Math.random()*450+1);
+				int y = (int)Math.floor(Math.random()*650+1);
+				
+				int w = (int)Math.floor(Math.random()*120+1);
+				int h = (int)Math.floor(Math.random()*120+1);
+				
+				Random rand = new Random();
+				float r = rand.nextFloat();
+				float g = rand.nextFloat();
+				float b = rand.nextFloat();
+				
+				
+				JButton otro_boton = new JButton("Click me");
+				otro_boton.setBounds(x,y,w,h);		
+				otro_boton.setOpaque(true);
+				otro_boton.setBackground(new Color(r, g, b));
+				btn_panel.add(otro_boton);
+				
+				getContentPane().repaint();	
+				getContentPane().revalidate();
+				
+			}
+			
+			
+			
+		});
+		
+		this.add(btn_panel);
+	}
 	//public void paint(Graphics g) {
 		//super.paint(g);
 		
