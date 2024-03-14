@@ -4,8 +4,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.imageio.ImageIO;
@@ -19,6 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -44,6 +48,7 @@ public class VentanaLogin extends JFrame {
 		
 		//this.iniciarComponentes();
 		//this.interes();
+		this.botones();
 		
 		
 		}
@@ -250,81 +255,147 @@ public void interes() {
 		
 	}
 
-public void paint(Graphics g) {
-	super.paint(g);
+public void botones() {
 
-	Graphics2D g2d = (Graphics2D) g;
+	this.setSize(500,500);
+
+	JPanel btn_panel = new JPanel();
+	btn_panel.setLocation(0,0);
+	btn_panel.setBackground(Color.white);
+	btn_panel.setLayout(null);
+
+	JButton super_boton = new JButton("Click me!");
+	super_boton.setBounds(160,300,150,100);
+	super_boton.setFont(new Font("Roboto", Font.BOLD, 20));
+	btn_panel.add(super_boton);
+	
+	
+		super_boton.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+
+			
+
+			// Resto del código para generar un nuevo botón aleatorio
+			int x = (int) Math.floor(Math.random() * 450 + 1);
+			int y = (int) Math.floor(Math.random() * 650 + 1);
+			int w = (int) Math.floor(Math.random() * 120 + 1);
+			int h = (int) Math.floor(Math.random() * 120 + 1);
+			
+			Random rand = new Random();
+			float r = rand.nextFloat();
+			float g = rand.nextFloat();
+			float b = rand.nextFloat();
+			
+			JButton otro_boton = new JButton("boton_color");
+			otro_boton.setBounds(x, y, w, h);
+			otro_boton.setOpaque(true);
+			otro_boton.setBackground(new Color(r, g, b));
+			otro_boton.addActionListener(this);
+			btn_panel.add(otro_boton);
+			
+			otro_boton.addActionListener(new ActionListener() {
+				
+				public void actionPerformed(ActionEvent e) {
+			
+			
+			JButton sourceButton = (JButton) e.getSource(); 
+			Color boton_color = sourceButton.getBackground();
+			
+    
+			JOptionPane.showMessageDialog(null, boton_color); 
+			
+			
+				}
+			});	
+			
+			
+			getContentPane().repaint();
+			getContentPane().revalidate();
+				
+				
+			}		
+			
+		});
+	this.add(btn_panel);
+}
+
+//public void paint(Graphics g) {
+	//super.paint(g);
+
+	//Graphics2D g2d = (Graphics2D) g;
 
 	//pared
-	g2d.setColor(Color.decode("#D5BA98"));
+	//g2d.setColor(Color.decode("#D5BA98"));
 
-	g2d.fillRect(210, 250, 350, 350);
+	//g2d.fillRect(210, 250, 350, 350);
 
 	//ESCALON
-	g2d.setColor(Color.GRAY);
+	//g2d.setColor(Color.GRAY);
 
-	g2d.fillRect(160, 580, 450, 20);
+	//g2d.fillRect(160, 580, 450, 20);
 	
 	//PASTO
-	g2d.setColor(Color.decode("#283E06"));
+	//g2d.setColor(Color.decode("#283E06"));
 
-	g2d.fillRect(0, 600, 800, 20);
+	//g2d.fillRect(0, 600, 800, 20);
 	
 	//PASTO ABAJO
-	g2d.setColor(Color.decode("#778C43"));
+	//g2d.setColor(Color.decode("#778C43"));
 
-	g2d.fillRect(0, 620, 800, 40);
+	//g2d.fillRect(0, 620, 800, 40);
 	
 	//PASTO ABAJO
-	g2d.setColor(Color.decode("#F7D547"));
+	//g2d.setColor(Color.decode("#F7D547"));
 
-	g2d.fillRect(0, 660, 800, 40);
+	//g2d.fillRect(0, 660, 800, 40);
 	
 	//TIERRA
-	g2d.setColor(Color.decode("#834F23"));
+	//g2d.setColor(Color.decode("#834F23"));
 
-	g2d.fillRect(0, 700, 800, 100);
+	//g2d.fillRect(0, 700, 800, 100);
 	
 	//MARCO DE LA PUERTA
-	g2d.setColor(Color.decode("#834F23"));
+	//g2d.setColor(Color.decode("#834F23"));
 
-	g2d.fillRect(260, 370, 120, 210);
+	//g2d.fillRect(260, 370, 120, 210);
 	
 	//PUERTA
-	g2d.setColor(Color.decode("#A06C3F"));
+	//g2d.setColor(Color.decode("#A06C3F"));
 
-	g2d.fillRect(270, 380, 100, 200);
+	//g2d.fillRect(270, 380, 100, 200);
 	
 	//MARCO DE LA VENTANA
-	g2d.setColor(Color.decode("#834F23"));
+	//g2d.setColor(Color.decode("#834F23"));
 
-	g2d.fillRect(440, 300, 90, 90);
+	//g2d.fillRect(440, 300, 90, 90);
 	
 	//VENTANA
-	g2d.setColor(Color.decode("#F7D547"));
+	//g2d.setColor(Color.decode("#F7D547"));
 
-	g2d.fillRect(450, 310, 70, 70);
+	//g2d.fillRect(450, 310, 70, 70);
 	
 	//BARROTES
-	g2d.setColor(Color.decode("#834F23"));
+	//g2d.setColor(Color.decode("#834F23"));
 
-	g2d.fillRect(483, 300, 5, 90);
+	//g2d.fillRect(483, 300, 5, 90);
 	
-	g2d.setColor(Color.decode("#834F23"));
+	//g2d.setColor(Color.decode("#834F23"));
 
-	g2d.fillRect(450, 343, 80, 5);
+	//g2d.fillRect(450, 343, 80, 5);
 	
 	//DESCANSA VENTANA
-	g2d.setColor(Color.GRAY);
+	//g2d.setColor(Color.GRAY);
 
-	g2d.fillRect(430, 390, 110, 10);
+	//g2d.fillRect(430, 390, 110, 10);
 	
 	
 	//PERILLA
-	g2d.setColor(Color.decode("#834F23"));
-	g2d.fillArc(340, 460, 20, 20, 0, 380);
+	//g2d.setColor(Color.decode("#834F23"));
+	//g2d.fillArc(340, 460, 20, 20, 0, 380);
 
-	g2d.drawLine(170, 250, 600, 250);
+	//g2d.drawLine(170, 250, 600, 250);
 
 	//g2d.drawOval(400, 400, 50, 80);
 	//g2d.fillOval(350, 400, 50, 80);
@@ -360,6 +431,6 @@ public void paint(Graphics g) {
 
 	//}	
 
-}
+//}
 
 }
